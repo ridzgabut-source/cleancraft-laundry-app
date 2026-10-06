@@ -67,12 +67,12 @@ export const BookingSuccessPage: React.FC = () => {
     <div className="max-w-xl mx-auto px-4 sm:px-6 py-8 md:py-16 space-y-6">
       {/* Success Card */}
       <div className="diffusion-card bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 text-center space-y-6">
-        <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
+        <div className="w-16 h-16 rounded-full bg-primary-100 text-primary-600 flex items-center justify-center mx-auto shadow-sm">
           <CheckCircle weight="fill" className="w-10 h-10" />
         </div>
 
         <div className="space-y-1">
-          <span className="text-[11px] font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+          <span className="text-[11px] font-bold uppercase tracking-wider text-primary-700 bg-primary-50 px-2.5 py-1 rounded-full border border-primary-200">
             Booking Berhasil Tersimpan
           </span>
           <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight pt-2">
@@ -100,7 +100,7 @@ export const BookingSuccessPage: React.FC = () => {
               title="Salin kode booking"
             >
               {copied ? (
-                <Check weight="bold" className="w-4 h-4 text-emerald-600" />
+                <Check weight="bold" className="w-4 h-4 text-primary-600" />
               ) : (
                 <Copy weight="bold" className="w-4 h-4" />
               )}
@@ -117,7 +117,7 @@ export const BookingSuccessPage: React.FC = () => {
             href={waUrl}
             target="_blank"
             rel="noreferrer"
-            className="tactile-btn w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-emerald-600/30 transition-all flex items-center justify-center gap-2 text-center"
+            className="tactile-btn w-full py-3.5 bg-primary-600 hover:bg-primary-700 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-primary-600/30 transition-all flex items-center justify-center gap-2 text-center"
           >
             <WhatsappLogo weight="fill" className="w-5 h-5" />
             <span>Chat Laundry via WhatsApp Sekarang</span>

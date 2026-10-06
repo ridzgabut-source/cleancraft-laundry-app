@@ -1,16 +1,38 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import { Navbar } from '../components/common/Navbar';
-import { Footer } from '../components/common/Footer';
-
-export const PublicLayout: React.FC = () => {
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
+import { Navbar } from "../components/common/Navbar";
+import { Footer } from "../components/common/Footer";
+export function PublicLayout() {
+  const { pathname, hash } = useLocation();
+  const reduced = useReducedMotion();
+  useEffect(() => {
+    if (hash) {
+      const timer = window.setTimeout(
+        () => document.getElementById(hash.slice(1))?.scrollIntoView(),
+        100,
+      );
+      return () => window.clearTimeout(timer);
+    }
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname, hash]);
   return (
-    <div className="min-h-[100dvh] flex flex-col bg-slate-50">
+    <div id="top" className="public-shell">
+      <a className="skip-link" href="#main-content">
+        Langsung ke konten
+      </a>
       <Navbar />
-      <main className="flex-1">
+      <motion.main
+        id="main-content"
+        key={pathname}
+        initial={reduced ? false : { opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className={pathname === "/" ? "public-main" : "public-main inner-page"}
+      >
         <Outlet />
-      </main>
+      </motion.main>
       <Footer />
     </div>
   );
-};
+}

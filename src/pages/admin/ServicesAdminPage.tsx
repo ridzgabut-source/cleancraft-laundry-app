@@ -93,7 +93,7 @@ export const ServicesAdminPage: React.FC = () => {
         <button
           type="button"
           onClick={handleOpenAdd}
-          className="tactile-btn inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors"
+          className="tactile-btn inline-flex items-center gap-2 px-4 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors"
         >
           <Plus weight="bold" className="w-4 h-4" />
           <span>Tambah Layanan Baru</span>
@@ -114,7 +114,7 @@ export const ServicesAdminPage: React.FC = () => {
                   <div className="flex items-center gap-2">
                     <h3 className="font-bold text-sm sm:text-base text-slate-900">{srv.name}</h3>
                     {srv.badge && (
-                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">
+                      <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-primary-50 text-primary-700 border border-primary-200">
                         {srv.badge}
                       </span>
                     )}
@@ -133,7 +133,7 @@ export const ServicesAdminPage: React.FC = () => {
                 <div className="flex items-center gap-4 sm:gap-6 justify-between sm:justify-end">
                   <div className="text-left sm:text-right">
                     <div className="text-[11px] text-slate-400">Harga / Kg</div>
-                    <div className="font-mono text-base sm:text-lg font-bold text-emerald-700">
+                    <div className="font-mono text-base sm:text-lg font-bold text-primary-700">
                       {formatRupiah(srv.pricePerKg)}
                     </div>
                   </div>
@@ -233,7 +233,7 @@ export const ServicesAdminPage: React.FC = () => {
                   id="isActiveToggle"
                   checked={isActive}
                   onChange={(e) => setIsActive(e.target.checked)}
-                  className="w-4 h-4 rounded text-emerald-600 focus:ring-emerald-500"
+                  className="w-4 h-4 rounded text-primary-600 focus:ring-primary-500"
                 />
                 <label htmlFor="isActiveToggle" className="text-slate-700 font-medium">
                   Layanan Aktif (Tampil di Website Pelanggan)
@@ -250,7 +250,7 @@ export const ServicesAdminPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="tactile-btn px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl font-semibold shadow-sm"
+                  className="tactile-btn px-5 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold shadow-sm"
                 >
                   Simpan Layanan
                 </button>

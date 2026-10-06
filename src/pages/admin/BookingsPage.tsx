@@ -80,7 +80,7 @@ export const BookingsPage: React.FC = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Cari kode booking, nama customer, atau nomor HP..."
-              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
+              className="w-full pl-10 pr-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
             />
           </div>
           <button
@@ -98,7 +98,7 @@ export const BookingsPage: React.FC = () => {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value as OrderStatus | 'ALL')}
-              className="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium text-slate-700 focus:outline-none focus:border-emerald-500"
+              className="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium text-slate-700 focus:outline-none focus:border-primary-500"
             >
               <option value="ALL">Semua Status</option>
               <option value="PENDING">PENDING (Menunggu)</option>
@@ -117,7 +117,7 @@ export const BookingsPage: React.FC = () => {
             <select
               value={paymentFilter}
               onChange={(e) => setPaymentFilter(e.target.value as PaymentStatus | 'ALL')}
-              className="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium text-slate-700 focus:outline-none focus:border-emerald-500"
+              className="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium text-slate-700 focus:outline-none focus:border-primary-500"
             >
               <option value="ALL">Semua Pembayaran</option>
               <option value="UNPAID">Belum Lunas</option>
@@ -131,7 +131,7 @@ export const BookingsPage: React.FC = () => {
             <select
               value={modeFilter}
               onChange={(e) => setModeFilter(e.target.value as ServiceMode | 'ALL')}
-              className="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium text-slate-700 focus:outline-none focus:border-emerald-500"
+              className="px-2.5 py-1.5 bg-slate-50 border border-slate-200 rounded-lg text-xs font-medium text-slate-700 focus:outline-none focus:border-primary-500"
             >
               <option value="ALL">Semua Metode</option>
               <option value="PICKUP">Pickup (Kurir)</option>
@@ -171,7 +171,7 @@ export const BookingsPage: React.FC = () => {
                     </div>
                     <div className="text-slate-500 flex items-center gap-1">
                       {b.serviceMode === 'PICKUP' ? (
-                        <Truck className="w-3.5 h-3.5 text-emerald-600" />
+                        <Truck className="w-3.5 h-3.5 text-primary-600" />
                       ) : (
                         <Package className="w-3.5 h-3.5 text-slate-400" />
                       )}
@@ -188,7 +188,7 @@ export const BookingsPage: React.FC = () => {
                   <div className="flex items-center justify-between pt-2 border-t border-slate-200/70 text-xs">
                     <div>
                       {b.actualWeight ? (
-                        <span className="font-mono font-semibold text-emerald-700">
+                        <span className="font-mono font-semibold text-primary-700">
                           {formatWeight(b.actualWeight)} • {formatRupiah(b.total)}
                         </span>
                       ) : (

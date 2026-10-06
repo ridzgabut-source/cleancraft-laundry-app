@@ -35,7 +35,7 @@ export const DeviceModeProvider: React.FC<{ children: React.ReactNode }> = ({ ch
         {/* Top Control Bar */}
         <div className="bg-slate-900 text-slate-300 px-4 py-2 text-xs flex flex-wrap items-center justify-between border-b border-slate-800 z-50">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span className="w-2 h-2 rounded-full bg-primary-400 animate-pulse"></span>
             <span className="font-semibold text-white">CleanCraft v2.1.0 Mock System</span>
             <span className="hidden sm:inline text-slate-400">|</span>
             <span className="hidden sm:inline text-slate-400">Pilih mode tampilan untuk melihat versi Mobile & Desktop:</span>
@@ -48,7 +48,7 @@ export const DeviceModeProvider: React.FC<{ children: React.ReactNode }> = ({ ch
                 onClick={() => setMode('mobile')}
                 className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
                   mode === 'mobile'
-                    ? 'bg-emerald-600 text-white shadow-sm'
+                    ? 'bg-primary-600 text-white shadow-sm'
                     : 'text-slate-400 hover:text-white'
                 }`}
                 title="Buka dalam frame ukuran layar smartphone (390px)"
@@ -61,7 +61,7 @@ export const DeviceModeProvider: React.FC<{ children: React.ReactNode }> = ({ ch
                 onClick={() => setMode('responsive')}
                 className={`flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium transition-all ${
                   mode === 'responsive'
-                    ? 'bg-emerald-600 text-white shadow-sm'
+                    ? 'bg-primary-600 text-white shadow-sm'
                     : 'text-slate-400 hover:text-white'
                 }`}
                 title="Buka dalam resolusi penuh (Desktop / Responsif Otomatis)"

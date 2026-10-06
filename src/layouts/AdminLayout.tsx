@@ -1,41 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import { AdminNav } from '../components/admin/AdminNav';
-import { mockApi } from '../lib/mockApi';
-
-export const AdminLayout: React.FC = () => {
-  const navigate = useNavigate();
-  const [checkingAuth, setCheckingAuth] = useState(true);
-
-  useEffect(() => {
-    const auth = mockApi.adminGetAuth();
-    if (!auth) {
-      // Auto authenticate for instant demo convenience, or navigate to login
-      // To ensure smooth first testing, we can check localStorage:
-      navigate('/admin/login');
-    }
-    setCheckingAuth(false);
-  }, [navigate]);
-
-  if (checkingAuth) {
-    return (
-      <div className="min-h-[100dvh] flex items-center justify-center bg-slate-900 text-white">
-        <div className="flex items-center gap-2 text-sm text-slate-400">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>Memeriksa sesi admin...</span>
-        </div>
-      </div>
-    );
-  }
-
+import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { motion, useReducedMotion } from "framer-motion";
+import { AdminNav } from "../components/admin/AdminNav";
+import { mockApi } from "../lib/mockApi";
+export function AdminLayout() {
+  const { pathname } = useLocation();
+  const reduced = useReducedMotion();
+  if (!mockApi.adminGetAuth()) return <Navigate to="/admin/login" replace />;
+  const section = pathname.split("/")[2];
+  const titles: Record<string, string> = {
+    dashboard: "Ringkasan",
+    bookings: "Pesanan",
+    services: "Layanan",
+    customers: "Pelanggan",
+    pickup: "Pickup",
+    settings: "Pengaturan",
+  };
   return (
-    <div className="min-h-[100dvh] flex flex-col md:flex-row bg-slate-100">
+    <div className="admin-shell">
       <AdminNav />
-      <main className="flex-1 min-w-0 p-4 sm:p-6 lg:p-8 overflow-y-auto">
-        <div className="max-w-7xl mx-auto">
-          <Outlet />
-        </div>
-      </main>
+      <div className="admin-workspace">
+        <header className="admin-topbar">
+          <span>
+            Workspace <span className="mx-3">/</span>{" "}
+            <strong>{titles[section] || "Studio"}</strong>
+          </span>
+          <div className="admin-profile">
+            <span>CleanCraft · Kebayoran Baru</span>
+            <span className="avatar">CC</span>
+          </div>
+        </header>
+        <main className="admin-content">
+          <motion.div
+            key={pathname}
+            initial={reduced ? false : { opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Outlet />
+          </motion.div>
+        </main>
+      </div>
     </div>
   );
-};
+}

@@ -49,7 +49,7 @@ export const CustomersAdminPage: React.FC = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Cari pelanggan berdasarkan nama, HP, atau alamat..."
-          className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 shadow-sm"
+          className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 shadow-sm"
         />
       </div>
 
@@ -71,7 +71,7 @@ export const CustomersAdminPage: React.FC = () => {
                       href={`https://wa.me/${c.phone}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="p-1 rounded-md bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
+                      className="p-1 rounded-md bg-primary-50 text-primary-700 hover:bg-primary-100"
                     >
                       <WhatsappLogo weight="fill" className="w-4 h-4" />
                     </a>
@@ -84,7 +84,7 @@ export const CustomersAdminPage: React.FC = () => {
 
                   <div className="pt-2 border-t border-slate-200/60 flex items-center justify-between text-[11px] text-slate-500">
                     <span>Total Booking: <strong className="text-slate-800">{c.totalBookings}</strong></span>
-                    <span>Selesai: <strong className="text-emerald-700">{c.completedOrders}</strong></span>
+                    <span>Selesai: <strong className="text-primary-700">{c.completedOrders}</strong></span>
                   </div>
                 </div>
               ))}
@@ -114,7 +114,7 @@ export const CustomersAdminPage: React.FC = () => {
                       <td className="py-3.5 px-4 font-mono font-semibold text-slate-800">
                         {c.totalBookings} kali
                       </td>
-                      <td className="py-3.5 px-4 font-mono font-semibold text-emerald-700">
+                      <td className="py-3.5 px-4 font-mono font-semibold text-primary-700">
                         {c.completedOrders} selesai
                       </td>
                       <td className="py-3.5 px-6 text-right">
@@ -122,9 +122,9 @@ export const CustomersAdminPage: React.FC = () => {
                           href={`https://wa.me/${c.phone}`}
                           target="_blank"
                           rel="noreferrer"
-                          className="tactile-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-semibold"
+                          className="tactile-btn inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary-50 hover:bg-primary-100 text-primary-800 text-xs font-semibold"
                         >
-                          <WhatsappLogo weight="fill" className="w-3.5 h-3.5 text-emerald-600" />
+                          <WhatsappLogo weight="fill" className="w-3.5 h-3.5 text-primary-600" />
                           <span>Chat WA</span>
                         </a>
                       </td>

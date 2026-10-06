@@ -99,7 +99,7 @@ export const TrackingPage: React.FC = () => {
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 md:py-14 space-y-8">
       {/* Header */}
       <div className="space-y-2 text-center max-w-lg mx-auto">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold">
+        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-50 text-primary-800 border border-primary-200 text-xs font-semibold">
           <MagnifyingGlass weight="bold" className="w-3.5 h-3.5" />
           <span>Lacak Status Cucian Real-Time</span>
         </div>
@@ -124,7 +124,7 @@ export const TrackingPage: React.FC = () => {
                 value={bookingCode}
                 onChange={(e) => setBookingCode(e.target.value.toUpperCase())}
                 placeholder="Contoh: LDR-20261006-A7F2"
-                className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 font-mono tracking-wide uppercase"
+                className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 font-mono tracking-wide uppercase"
                 required
               />
             </div>
@@ -138,7 +138,7 @@ export const TrackingPage: React.FC = () => {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="Contoh: 081298421823"
-                className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 font-mono"
+                className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500 font-mono"
                 required
               />
             </div>
@@ -146,13 +146,13 @@ export const TrackingPage: React.FC = () => {
 
           <div className="flex items-center justify-between pt-2">
             <div className="text-[11px] text-slate-400">
-              Contoh uji demo: <button type="button" onClick={() => { setBookingCode('LDR-20261006-A7F2'); setPhone('081298421823'); }} className="text-emerald-700 underline font-mono">LDR-20261006-A7F2</button>
+              Contoh uji demo: <button type="button" onClick={() => { setBookingCode('LDR-20261006-A7F2'); setPhone('081298421823'); }} className="text-primary-700 underline font-mono">LDR-20261006-A7F2</button>
             </div>
 
             <button
               type="submit"
               disabled={loading}
-              className="tactile-btn inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-emerald-600/30 transition-all disabled:opacity-60"
+              className="tactile-btn inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-primary-600/30 transition-all disabled:opacity-60"
             >
               <MagnifyingGlass weight="bold" className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
               <span>{loading ? 'Mencari...' : 'Lacak Cucian'}</span>
@@ -216,9 +216,9 @@ export const TrackingPage: React.FC = () => {
                       <div
                         className={`absolute -left-6 w-5 h-5 rounded-full flex items-center justify-center border-2 transition-all ${
                           isDone
-                            ? 'bg-emerald-600 border-emerald-600 text-white'
+                            ? 'bg-primary-600 border-primary-600 text-white'
                             : isCurrent
-                            ? 'bg-emerald-50 border-emerald-600 text-emerald-600 ring-4 ring-emerald-100'
+                            ? 'bg-primary-50 border-primary-600 text-primary-600 ring-4 ring-primary-100'
                             : 'bg-white border-slate-300 text-slate-300'
                         }`}
                       >
@@ -233,7 +233,7 @@ export const TrackingPage: React.FC = () => {
                         <div
                           className={`text-xs font-bold ${
                             isCurrent
-                              ? 'text-emerald-700'
+                              ? 'text-primary-700'
                               : isDone
                               ? 'text-slate-900'
                               : 'text-slate-400'
@@ -252,23 +252,23 @@ export const TrackingPage: React.FC = () => {
 
           {/* Actual Weight & Scale Photo Box (PRD Section 41 & 53) */}
           {booking.actualWeight && (
-            <div className="p-4 sm:p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200 space-y-3">
+            <div className="p-4 sm:p-5 rounded-2xl bg-primary-50/60 border border-primary-200 space-y-3">
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2 text-xs font-bold text-emerald-900">
-                  <Scales weight="fill" className="w-4 h-4 text-emerald-700" />
+                <div className="flex items-center gap-2 text-xs font-bold text-primary-900">
+                  <Scales weight="fill" className="w-4 h-4 text-primary-700" />
                   <span>Hasil Penimbangan Aktual di Outlet</span>
                 </div>
-                <span className="font-mono text-base font-bold text-emerald-800">
+                <span className="font-mono text-base font-bold text-primary-800">
                   {formatWeight(booking.actualWeight)}
                 </span>
               </div>
 
               {booking.scalePhotoUrl && (
-                <div className="pt-2 border-t border-emerald-200/60 space-y-2">
-                  <span className="text-[11px] font-semibold text-emerald-800 block">
+                <div className="pt-2 border-t border-primary-200/60 space-y-2">
+                  <span className="text-[11px] font-semibold text-primary-800 block">
                     Foto Timbangan Digital:
                   </span>
-                  <div className="w-full max-w-sm rounded-xl overflow-hidden border border-emerald-300 shadow-sm bg-black">
+                  <div className="w-full max-w-sm rounded-xl overflow-hidden border border-primary-300 shadow-sm bg-black">
                     <img
                       src={booking.scalePhotoUrl}
                       alt="Foto timbangan cucian"
@@ -312,7 +312,7 @@ export const TrackingPage: React.FC = () => {
 
             <div className="flex items-center justify-between pt-2 border-t border-slate-200 text-sm font-bold text-slate-900">
               <span>Total Tagihan:</span>
-              <span className="font-mono text-emerald-700">{formatRupiah(booking.total)}</span>
+              <span className="font-mono text-primary-700">{formatRupiah(booking.total)}</span>
             </div>
           </div>
 
@@ -324,7 +324,7 @@ export const TrackingPage: React.FC = () => {
               rel="noreferrer"
               className="tactile-btn inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition-colors"
             >
-              <WhatsappLogo weight="fill" className="w-4 h-4 text-emerald-600" />
+              <WhatsappLogo weight="fill" className="w-4 h-4 text-primary-600" />
               <span>Tanyakan Order Ini ke Admin WhatsApp</span>
             </a>
           </div>

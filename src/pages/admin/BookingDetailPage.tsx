@@ -177,7 +177,7 @@ export const BookingDetailPage: React.FC = () => {
             className={`tactile-btn px-3 py-2 rounded-xl text-xs font-semibold border transition-colors ${
               booking.paymentStatus === 'PAID'
                 ? 'bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100'
-                : 'bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-700 shadow-sm'
+                : 'bg-primary-600 text-white border-primary-600 hover:bg-primary-700 shadow-sm'
             }`}
           >
             {booking.paymentStatus === 'PAID' ? 'Ubah ke Belum Bayar' : 'Tandai Lunas'}
@@ -210,7 +210,7 @@ export const BookingDetailPage: React.FC = () => {
                     href={`https://wa.me/${booking.customerPhone}`}
                     target="_blank"
                     rel="noreferrer"
-                    className="p-1 rounded-md bg-emerald-50 text-emerald-700 hover:bg-emerald-100"
+                    className="p-1 rounded-md bg-primary-50 text-primary-700 hover:bg-primary-100"
                     title="Buka chat WhatsApp"
                   >
                     <WhatsappLogo weight="fill" className="w-3.5 h-3.5" />
@@ -246,7 +246,7 @@ export const BookingDetailPage: React.FC = () => {
 
                   <div className="space-y-1">
                     <span className="text-slate-400">Jarak Antar-Jemput</span>
-                    <p className="font-mono text-emerald-700 font-bold">
+                    <p className="font-mono text-primary-700 font-bold">
                       {booking.distanceKm} km (Tarif: {formatRupiah(booking.pickupFee)})
                     </p>
                   </div>
@@ -282,7 +282,7 @@ export const BookingDetailPage: React.FC = () => {
           <div className="diffusion-card bg-white rounded-3xl p-6 border border-slate-200 space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
-                <Scales weight="bold" className="w-5 h-5 text-emerald-600" />
+                <Scales weight="bold" className="w-5 h-5 text-primary-600" />
                 <h3 className="font-bold text-sm text-slate-900">
                   Input Berat Aktual & Foto Timbangan
                 </h3>
@@ -294,7 +294,7 @@ export const BookingDetailPage: React.FC = () => {
               <div className={`p-3 rounded-xl border text-xs font-medium ${
                 weightError
                   ? 'bg-rose-50 border-rose-200 text-rose-800'
-                  : 'bg-emerald-50 border-emerald-200 text-emerald-800'
+                  : 'bg-primary-50 border-primary-200 text-primary-800'
               }`}>
                 {weightMessage}
               </div>
@@ -314,7 +314,7 @@ export const BookingDetailPage: React.FC = () => {
                       value={actualWeightInput}
                       onChange={(e) => setActualWeightInput(e.target.value)}
                       placeholder="Contoh: 4.8"
-                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-mono font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
                     />
                     <span className="absolute right-3.5 top-3 text-xs text-slate-400 font-bold">
                       KG
@@ -331,7 +331,7 @@ export const BookingDetailPage: React.FC = () => {
                     value={scalePhotoUrlInput}
                     onChange={(e) => setScalePhotoUrlInput(e.target.value)}
                     placeholder="https://... atau klik tombol demo di bawah"
-                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-emerald-500"
+                    className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs focus:outline-none focus:border-primary-500"
                   />
                 </div>
               </div>
@@ -380,7 +380,7 @@ export const BookingDetailPage: React.FC = () => {
                 <button
                   type="submit"
                   disabled={isUpdatingWeight}
-                  className="tactile-btn px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors disabled:opacity-60"
+                  className="tactile-btn px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors disabled:opacity-60"
                 >
                   {isUpdatingWeight ? 'Menyimpan...' : 'Hitung & Simpan Tagihan Final'}
                 </button>
@@ -442,7 +442,7 @@ export const BookingDetailPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleTransition('PROCESSING')}
-                  className="tactile-btn w-full py-2.5 bg-teal-600 hover:bg-teal-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm"
+                  className="tactile-btn w-full py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm"
                 >
                   <ArrowsClockwise weight="bold" className="w-4 h-4" />
                   <span>Mulai Proses Cuci (PROCESSING)</span>
@@ -453,7 +453,7 @@ export const BookingDetailPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleTransition('READY')}
-                  className="tactile-btn w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm"
+                  className="tactile-btn w-full py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-xs font-semibold flex items-center justify-center gap-1.5 shadow-sm"
                 >
                   <Sparkle weight="bold" className="w-4 h-4" />
                   <span>Cucian Siap Diambil/Diantar (READY)</span>
@@ -516,14 +516,14 @@ export const BookingDetailPage: React.FC = () => {
 
             <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-sm font-bold text-slate-900">
               <span>Total Tagihan:</span>
-              <span className="font-mono text-emerald-700 text-base">{formatRupiah(booking.total)}</span>
+              <span className="font-mono text-primary-700 text-base">{formatRupiah(booking.total)}</span>
             </div>
           </div>
 
           {/* WhatsApp Direct Actions (PRD Section 45 & 49) */}
-          <div className="diffusion-card bg-emerald-50/70 rounded-3xl p-6 border border-emerald-200 space-y-3">
-            <div className="flex items-center gap-2 text-emerald-900 font-bold text-xs">
-              <WhatsappLogo weight="fill" className="w-4 h-4 text-emerald-700" />
+          <div className="diffusion-card bg-primary-50/70 rounded-3xl p-6 border border-primary-200 space-y-3">
+            <div className="flex items-center gap-2 text-primary-900 font-bold text-xs">
+              <WhatsappLogo weight="fill" className="w-4 h-4 text-primary-700" />
               <span>Notifikasi WhatsApp Pelanggan</span>
             </div>
 
@@ -531,7 +531,7 @@ export const BookingDetailPage: React.FC = () => {
               <button
                 type="button"
                 onClick={openBillingWhatsApp}
-                className="tactile-btn w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors text-center"
+                className="tactile-btn w-full py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors text-center"
               >
                 Generate Tagihan WhatsApp
               </button>
@@ -547,7 +547,7 @@ export const BookingDetailPage: React.FC = () => {
                     : 'RECEIVED';
                   openStatusWhatsApp(st);
                 }}
-                className="tactile-btn w-full py-2 bg-white hover:bg-slate-50 border border-emerald-300 text-emerald-900 rounded-xl text-xs font-semibold text-center"
+                className="tactile-btn w-full py-2 bg-white hover:bg-slate-50 border border-primary-300 text-primary-900 rounded-xl text-xs font-semibold text-center"
               >
                 Kirim Status Terkini ({booking.status})
               </button>
@@ -562,7 +562,7 @@ export const BookingDetailPage: React.FC = () => {
           <div className="w-full max-w-lg bg-white rounded-3xl p-6 border border-slate-200 shadow-2xl space-y-4">
             <div className="flex items-center justify-between border-b border-slate-100 pb-3">
               <div className="flex items-center gap-2">
-                <WhatsappLogo weight="fill" className="w-5 h-5 text-emerald-600" />
+                <WhatsappLogo weight="fill" className="w-5 h-5 text-primary-600" />
                 <h3 className="font-bold text-sm text-slate-900">Pesan WhatsApp Otomatis</h3>
               </div>
               <button
@@ -582,7 +582,7 @@ export const BookingDetailPage: React.FC = () => {
                 rows={9}
                 value={waMessageText}
                 onChange={(e) => setWaMessageText(e.target.value)}
-                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono text-slate-800 leading-relaxed focus:outline-none focus:border-emerald-500"
+                className="w-full p-3 bg-slate-50 border border-slate-200 rounded-xl text-xs font-mono text-slate-800 leading-relaxed focus:outline-none focus:border-primary-500"
               />
             </div>
 
@@ -592,7 +592,7 @@ export const BookingDetailPage: React.FC = () => {
                 onClick={handleCopyWA}
                 className="tactile-btn inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs font-semibold text-slate-700 hover:bg-slate-50"
               >
-                {copiedWA ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                {copiedWA ? <Check className="w-4 h-4 text-primary-600" /> : <Copy className="w-4 h-4" />}
                 <span>{copiedWA ? 'Tersalin!' : 'Salin Pesan'}</span>
               </button>
 
@@ -600,7 +600,7 @@ export const BookingDetailPage: React.FC = () => {
                 href={createWhatsAppUrl(booking.customerPhone, waMessageText)}
                 target="_blank"
                 rel="noreferrer"
-                className="tactile-btn inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-600/30"
+                className="tactile-btn inline-flex items-center gap-2 px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-xs font-bold shadow-md shadow-primary-600/30"
               >
                 <WhatsappLogo weight="fill" className="w-4 h-4" />
                 <span>Buka di WhatsApp Web / App</span>

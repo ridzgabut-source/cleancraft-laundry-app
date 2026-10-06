@@ -56,7 +56,7 @@ export const SettingsAdminPage: React.FC = () => {
         </div>
 
         {saveSuccess && (
-          <span className="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-xl border border-emerald-200 flex items-center gap-1.5 animate-fadeIn">
+          <span className="text-xs font-semibold text-primary-700 bg-primary-50 px-3 py-1.5 rounded-xl border border-primary-200 flex items-center gap-1.5 animate-fadeIn">
             <Check weight="bold" className="w-3.5 h-3.5" />
             <span>Pengaturan Berhasil Disimpan!</span>
           </span>
@@ -67,7 +67,7 @@ export const SettingsAdminPage: React.FC = () => {
         {/* SECTION 1: PROFIL OUTLET */}
         <div className="diffusion-card bg-white rounded-3xl p-6 border border-slate-200 space-y-4">
           <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
-            <Building weight="bold" className="w-5 h-5 text-emerald-600" />
+            <Building weight="bold" className="w-5 h-5 text-primary-600" />
             <h3 className="font-bold text-sm text-slate-900">Identitas & Alamat Fisik Outlet</h3>
           </div>
 
@@ -110,7 +110,7 @@ export const SettingsAdminPage: React.FC = () => {
         {/* SECTION 2: KOORDINAT & RADIUS HAVERSINE */}
         <div className="diffusion-card bg-white rounded-3xl p-6 border border-slate-200 space-y-4">
           <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
-            <MapPin weight="bold" className="w-5 h-5 text-emerald-600" />
+            <MapPin weight="bold" className="w-5 h-5 text-primary-600" />
             <h3 className="font-bold text-sm text-slate-900">
               Koordinat Outlet & Batas Radius (Haversine Formula)
             </h3>
@@ -150,7 +150,7 @@ export const SettingsAdminPage: React.FC = () => {
                 onChange={(e) =>
                   setSettings({ ...settings, maximumPickupRadiusKm: Number(e.target.value) })
                 }
-                className="w-full px-3 py-2 border rounded-xl font-mono font-bold text-emerald-700"
+                className="w-full px-3 py-2 border rounded-xl font-mono font-bold text-primary-700"
                 required
               />
             </div>
@@ -160,7 +160,7 @@ export const SettingsAdminPage: React.FC = () => {
         {/* SECTION 3: OPERASIONAL & CUTOFF */}
         <div className="diffusion-card bg-white rounded-3xl p-6 border border-slate-200 space-y-4">
           <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
-            <Clock weight="bold" className="w-5 h-5 text-emerald-600" />
+            <Clock weight="bold" className="w-5 h-5 text-primary-600" />
             <h3 className="font-bold text-sm text-slate-900">Aturan Jam & Batas Waktu Booking (Cutoff)</h3>
           </div>
 
@@ -214,7 +214,7 @@ export const SettingsAdminPage: React.FC = () => {
         {/* SECTION 4: INFORMASI PEMBAYARAN MANUAL */}
         <div className="diffusion-card bg-white rounded-3xl p-6 border border-slate-200 space-y-4">
           <div className="flex items-center gap-2 border-b border-slate-100 pb-3">
-            <CreditCard weight="bold" className="w-5 h-5 text-emerald-600" />
+            <CreditCard weight="bold" className="w-5 h-5 text-primary-600" />
             <h3 className="font-bold text-sm text-slate-900">
               Instruksi Rekening & Pembayaran Manual (PRD Section 44)
             </h3>
@@ -257,7 +257,7 @@ export const SettingsAdminPage: React.FC = () => {
         <div className="flex items-center justify-end gap-3 pt-2">
           <button
             type="submit"
-            className="tactile-btn px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-emerald-600/30 transition-colors"
+            className="tactile-btn px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-xs font-semibold shadow-md shadow-primary-600/30 transition-colors"
           >
             Simpan Seluruh Pengaturan
           </button>

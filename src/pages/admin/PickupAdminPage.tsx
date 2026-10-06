@@ -128,7 +128,7 @@ export const PickupAdminPage: React.FC = () => {
       <div className="space-y-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Clock weight="bold" className="w-5 h-5 text-emerald-600" />
+            <Clock weight="bold" className="w-5 h-5 text-primary-600" />
             <h2 className="font-bold text-base text-slate-900">
               Template Slot Jadwal Pickup Harian
             </h2>
@@ -136,7 +136,7 @@ export const PickupAdminPage: React.FC = () => {
           <button
             type="button"
             onClick={handleOpenAddSlot}
-            className="tactile-btn inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-sm"
+            className="tactile-btn inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-xs font-semibold shadow-sm"
           >
             <Plus weight="bold" className="w-3.5 h-3.5" />
             <span>Tambah Slot</span>
@@ -153,7 +153,7 @@ export const PickupAdminPage: React.FC = () => {
                 <span className="font-bold text-sm text-slate-900">{s.name}</span>
                 <span
                   className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                    s.isActive ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-400'
+                    s.isActive ? 'bg-primary-50 text-primary-700' : 'bg-slate-100 text-slate-400'
                   }`}
                 >
                   {s.isActive ? 'Aktif' : 'Nonaktif'}
@@ -169,7 +169,7 @@ export const PickupAdminPage: React.FC = () => {
                 </div>
                 <div className="flex items-center justify-between text-slate-500">
                   <span>Kapasitas Maksimal:</span>
-                  <span className="font-mono font-bold text-emerald-700">
+                  <span className="font-mono font-bold text-primary-700">
                     {s.capacity} Pesanan / Hari
                   </span>
                 </div>
@@ -191,7 +191,7 @@ export const PickupAdminPage: React.FC = () => {
       <div className="space-y-4 pt-4 border-t border-slate-200/80">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <MapPinLine weight="bold" className="w-5 h-5 text-emerald-600" />
+            <MapPinLine weight="bold" className="w-5 h-5 text-primary-600" />
             <h2 className="font-bold text-base text-slate-900">
               Zona Jarak & Biaya Ongkos Kirim (Pickup Zones)
             </h2>
@@ -199,7 +199,7 @@ export const PickupAdminPage: React.FC = () => {
           <button
             type="button"
             onClick={handleOpenAddZone}
-            className="tactile-btn inline-flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-sm"
+            className="tactile-btn inline-flex items-center gap-1.5 px-3 py-1.5 bg-primary-600 hover:bg-primary-700 text-white rounded-xl text-xs font-semibold shadow-sm"
           >
             <Plus weight="bold" className="w-3.5 h-3.5" />
             <span>Tambah Zona</span>
@@ -217,7 +217,7 @@ export const PickupAdminPage: React.FC = () => {
                 <span className="font-mono font-bold text-sm text-slate-900">
                   {z.minDistanceKm} – {z.maxDistanceKm} KM
                 </span>
-                <span className="font-mono font-bold text-base text-emerald-700">
+                <span className="font-mono font-bold text-base text-primary-700">
                   {formatRupiah(z.fee)}
                 </span>
               </div>
@@ -295,7 +295,7 @@ export const PickupAdminPage: React.FC = () => {
                   id="slotActive"
                   checked={isSlotActive}
                   onChange={(e) => setIsSlotActive(e.target.checked)}
-                  className="w-4 h-4 text-emerald-600 rounded"
+                  className="w-4 h-4 text-primary-600 rounded"
                 />
                 <label htmlFor="slotActive">Slot Aktif</label>
               </div>
@@ -309,7 +309,7 @@ export const PickupAdminPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-1.5 bg-emerald-600 text-white rounded-lg font-semibold"
+                  className="px-4 py-1.5 bg-primary-600 text-white rounded-lg font-semibold"
                 >
                   Simpan
                 </button>
@@ -367,7 +367,7 @@ export const PickupAdminPage: React.FC = () => {
                   id="zoneActive"
                   checked={isZoneActive}
                   onChange={(e) => setIsZoneActive(e.target.checked)}
-                  className="w-4 h-4 text-emerald-600 rounded"
+                  className="w-4 h-4 text-primary-600 rounded"
                 />
                 <label htmlFor="zoneActive">Zona Aktif</label>
               </div>
@@ -381,7 +381,7 @@ export const PickupAdminPage: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-1.5 bg-emerald-600 text-white rounded-lg font-semibold"
+                  className="px-4 py-1.5 bg-primary-600 text-white rounded-lg font-semibold"
                 >
                   Simpan
                 </button>

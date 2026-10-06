@@ -37,23 +37,23 @@ export const StatusBadge: React.FC<StatusBadgeProps> = ({ status, size = 'md' })
     },
     RECEIVED: {
       label: 'Cucian Diterima',
-      bg: 'bg-indigo-50',
-      text: 'text-indigo-800',
-      border: 'border-indigo-200',
+      bg: 'bg-primary-50',
+      text: 'text-primary-800',
+      border: 'border-primary-200',
       icon: <Package weight="bold" className="shrink-0" />,
     },
     PROCESSING: {
       label: 'Sedang Dicuci',
-      bg: 'bg-teal-50',
-      text: 'text-teal-800',
-      border: 'border-teal-200',
+      bg: 'bg-primary-50',
+      text: 'text-primary-800',
+      border: 'border-primary-200',
       icon: <ArrowsClockwise weight="bold" className="shrink-0 animate-spin" />,
     },
     READY: {
       label: 'Selesai & Siap',
-      bg: 'bg-emerald-50',
-      text: 'text-emerald-800',
-      border: 'border-emerald-200',
+      bg: 'bg-primary-50',
+      text: 'text-primary-800',
+      border: 'border-primary-200',
       icon: <Sparkle weight="bold" className="shrink-0" />,
     },
     COMPLETED: {
@@ -96,7 +96,7 @@ export const PaymentBadge: React.FC<{ status: PaymentStatus; size?: 'sm' | 'md' 
     <span
       className={`inline-flex items-center font-medium rounded-full border ${sizeClasses} ${
         isPaid
-          ? 'bg-emerald-50 text-emerald-800 border-emerald-200'
+          ? 'bg-primary-50 text-primary-800 border-primary-200'
           : 'bg-amber-50 text-amber-800 border-amber-200'
       }`}
     >

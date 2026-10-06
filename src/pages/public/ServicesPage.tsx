@@ -1,126 +1,119 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import {
-  Sparkle,
-  Clock,
-  Check,
-  ArrowRight,
-  Scales,
-} from '@phosphor-icons/react';
-import { mockApi } from '../../lib/mockApi';
-import type { Service } from '../../types';
-import { formatRupiah } from '../../lib/utils';
-
-export const ServicesPage: React.FC = () => {
-  const navigate = useNavigate();
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, Clock, Scales, Check } from "@phosphor-icons/react";
+import { mockApi } from "../../lib/mockApi";
+import type { Service } from "../../types";
+import { formatRupiah } from "../../lib/utils";
+import { LaundryVisual } from "../../components/common/LaundryVisual";
+import { Reveal } from "../../components/common/Reveal";
+const kinds = ["washer", "shirt", "towels", "bedding"] as const;
+export function ServicesPage() {
   const [services, setServices] = useState<Service[]>([]);
-
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   useEffect(() => {
-    async function fetch() {
-      const res = await mockApi.getServices();
-      setServices(res);
-    }
-    fetch();
+    let active = true;
+    mockApi
+      .getServices()
+      .then((data) => {
+        if (active) setServices(data);
+      })
+      .catch(() => {
+        if (active) setError(true);
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => {
+      active = false;
+    };
   }, []);
-
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 md:py-14 space-y-12">
-      {/* Header */}
-      <div className="space-y-3 max-w-2xl">
-        <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold">
-          <Sparkle weight="bold" className="w-3.5 h-3.5" />
-          <span>Katalog Tarif Resmi CleanCraft</span>
+    <div className="site-container space-y-9">
+      <Reveal className="catalog-heading">
+        <div>
+          <span className="eyebrow">A LITTLE CARE FOR EVERY WEAR</span>
+          <h1 className="text-4xl sm:text-5xl mt-4 leading-tight">
+            Cucian berbeda.
+            <br />
+            Perhatian yang sama.
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-500 leading-relaxed max-w-lg mt-5">
+            Dari pakaian sehari-hari sampai selimut kesayangan. Pilih perawatan
+            yang pas, dengan harga yang jelas per kilogram.
+          </p>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Layanan & Tarif Laundry Kiloan
-        </h1>
-        <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-          Semua cucian dicuci terpisah (1 mesin untuk 1 pelanggan). Tagihan akhir dihitung transparan berdasarkan berat riil setelah ditimbang di outlet.
-        </p>
-      </div>
-
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {services.map((service) => (
-          <div
-            key={service.id}
-            className="diffusion-card bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 flex flex-col justify-between hover:border-emerald-500/50 hover:shadow-lg transition-all"
+        <LaundryVisual kind="towels" />
+      </Reveal>
+      {error ? (
+        <p role="alert">
+          Layanan belum dapat dimuat.{" "}
+          <button
+            className="text-link"
+            onClick={() => window.location.reload()}
           >
-            <div className="space-y-4">
-              <div className="flex items-start justify-between gap-2">
-                <div>
-                  {service.badge && (
-                    <span className="inline-block text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 mb-2">
-                      {service.badge}
-                    </span>
-                  )}
-                  <h3 className="font-display font-bold text-xl text-slate-900">
-                    {service.name}
-                  </h3>
-                </div>
-              </div>
-
-              <p className="text-xs text-slate-600 leading-relaxed">
-                {service.description}
-              </p>
-
-              {/* What's included checklist */}
-              <div className="space-y-2 pt-2 border-t border-slate-100 text-xs text-slate-600">
-                <div className="flex items-center gap-2">
-                  <Check weight="bold" className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Satu mesin per pelanggan (tidak dicampur)</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check weight="bold" className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Deterjen ramah serat & pelembut harum tahan lama</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Check weight="bold" className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>Foto timbangan dikirim sebelum proses</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-6 border-t border-slate-100 mt-6 space-y-4">
-              <div className="flex items-baseline justify-between">
-                <span className="text-xs text-slate-500">Harga Layanan:</span>
-                <div className="font-mono text-2xl font-bold text-emerald-700">
-                  {formatRupiah(service.pricePerKg)}
-                  <span className="text-xs font-normal text-slate-500 font-sans"> / kg</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-2 text-xs text-slate-500">
-                <Clock weight="fill" className="w-4 h-4 text-slate-400" />
-                <span>Waktu Pengerjaan: ~{service.estimatedHours} Jam</span>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => navigate(`/booking?service=${service.id}`)}
-                className="tactile-btn w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-sm transition-colors flex items-center justify-center gap-2"
-              >
-                <span>Pilih Layanan & Booking</span>
-                <ArrowRight weight="bold" className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Transparency Guarantee Banner per PRD Section 3.4 & 38 */}
-      <div className="p-6 sm:p-8 rounded-3xl bg-slate-900 text-slate-200 border border-slate-800 space-y-3">
-        <div className="flex items-center gap-2 text-emerald-400 text-xs font-bold uppercase tracking-wider">
-          <Scales weight="fill" className="w-4 h-4" />
-          <span>Prinsip Kejujuran Berat Bersih (Actual Weight)</span>
-        </div>
-        <h3 className="font-display font-bold text-xl text-white">
-          Estimasi di Website Bukan Tagihan Final
-        </h3>
-        <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-3xl">
-          Ketika Anda melakukan booking, Anda hanya memilih estimasi kantong cucian. Tagihan final yang wajib dibayar dihitung murni berdasarkan berat timbangan digital sesaat setelah cucian tiba di outlet kami. Anda akan menerima foto timbangan asli melalui WhatsApp sebelum cucian mulai dicuci.
+            Coba lagi
+          </button>
         </p>
-      </div>
+      ) : (
+        <div className="catalog-grid">
+          {loading ? (
+            [0, 1, 2, 3].map((i) => <div key={i} className="skeleton h-96" />)
+          ) : services.length === 0 ? (
+            <p className="empty-message">
+              Belum ada layanan aktif. Hubungi studio untuk informasi lebih
+              lanjut.
+            </p>
+          ) : (
+            services.map((service, i) => (
+              <Reveal
+                key={service.id}
+                delay={i * 0.06}
+                className="catalog-card"
+              >
+                <LaundryVisual kind={kinds[i % 4]} />
+                <div className="catalog-content">
+                  <span className="eyebrow">
+                    {service.badge || "DIRAWAT SEPENUH HATI"}
+                  </span>
+                  <h2>{service.name}</h2>
+                  <p>{service.description}</p>
+                  <div className="flex gap-2 text-[11px] text-primary-600 items-center">
+                    <Clock size={15} /> Estimasi {service.estimatedHours} jam
+                  </div>
+                  <div className="flex gap-2 text-[11px] text-slate-400 items-center mt-3">
+                    <Check size={15} /> Satu pelanggan, satu mesin
+                  </div>
+                  <div className="catalog-price">
+                    <div>
+                      <strong>{formatRupiah(service.pricePerKg)}</strong>
+                      <small> / kg</small>
+                    </div>
+                    <Link
+                      to={`/booking?service=${service.id}`}
+                      className="button button-primary"
+                    >
+                      Pilih layanan <ArrowUpRight size={15} />
+                    </Link>
+                  </div>
+                </div>
+              </Reveal>
+            ))
+          )}
+        </div>
+      )}
+      <Reveal className="catalog-guarantee">
+        <Scales size={36} weight="duotone" />
+        <div>
+          <span className="eyebrow">JELAS DARI AWAL</span>
+          <h2>Berat asli. Harga yang pasti.</h2>
+          <p>
+            Tagihan akhir dihitung dari berat cucian setelah ditimbang di
+            studio. Kamu menerima foto timbangan sebelum cucian diproses.
+            Estimasi kantong saat booking membantu kami menyiapkan penjemputan.
+          </p>
+        </div>
+      </Reveal>
     </div>
   );
-};
+}
